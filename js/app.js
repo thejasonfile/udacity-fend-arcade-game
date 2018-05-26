@@ -27,10 +27,10 @@ class Enemy {
 // a handleInput() method.
 class Player {
   constructor() {
-
+    this.sprite = 'images/char-boy.png';
   }
 
-  update() {
+  update(dt) {
 
   }
 
@@ -47,7 +47,8 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-
+allEnemies = [];
+player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
