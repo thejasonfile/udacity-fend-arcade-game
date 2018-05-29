@@ -9,7 +9,7 @@ class Enemy {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = this.calculateSpeed();
   }
 
   // Update the enemy's position, required method for game
@@ -23,6 +23,10 @@ class Enemy {
 
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+
+  calculateSpeed() {
+    return Math.floor(Math.random() * 400) + 100  //random number code from https://www.w3schools.com/js/js_random.asp
   }
 }
 
@@ -50,9 +54,9 @@ class Player {
 }
 
 // Now instantiate your objects.
-const enemy1 = new Enemy(1, 60, 200);
-const enemy2 = new Enemy(0, 145, 300);
-const enemy3 = new Enemy(0, 230, 50);
+const enemy1 = new Enemy(0, 60);
+const enemy2 = new Enemy(0, 145);
+const enemy3 = new Enemy(0, 230);
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
