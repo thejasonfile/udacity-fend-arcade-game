@@ -54,6 +54,7 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
+<<<<<<< HEAD
   handleInput(direction) {
     // a direction string is received from the 'keyup' event listener, the player
     // x and y values are changed based on that direction string
@@ -71,6 +72,26 @@ class Player {
         this.x -= 100;
         break;
     }
+||||||| merged common ancestors
+  handleInput() {
+
+=======
+  handleInput(direction) {
+    switch(direction) {
+      case 'up':
+        this.y -= 85;
+        break;
+      case 'down':
+        this.y += 85;
+        break;
+      case 'right':
+        this.x += 100;
+        break;
+      case 'left':
+        this.x -= 100;
+        break;
+    }
+>>>>>>> e6baebe15c1bb82a266bef51eda6a900c476307b
   }
 }
 
