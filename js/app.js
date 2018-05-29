@@ -48,16 +48,26 @@ class Player {
 
   update() {
     if (this.y === 230 || this.y === 145 || this.y === 60) {
-      player.detectCollisions(this.x, this.y)
+      this.detectCollisions(this.x, this.y)
+    } else if (this.y === -25) {
+      this.playerWins();
     }
   }
 
   detectCollisions(playerX, playerY) {
     let enemyInCurrentLane = allEnemies.find(enemy => enemy.y === playerY);
     if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
-      player.x = 200;
-      player.y = 400;
+      this.resetPlayer();
     }
+  }
+
+  playerWins() {
+    this.resetPlayer();
+  }
+
+  resetPlayer() {
+    this.x = 200;
+    this.y = 400;
   }
 
   render() {
