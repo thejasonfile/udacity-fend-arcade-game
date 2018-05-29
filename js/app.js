@@ -67,19 +67,15 @@ class Player {
   handleInput(direction) {
     // a direction string is received from the 'keyup' event listener, the player
     // x and y values are changed based on that direction string
-    switch(direction) {
-      case 'up':
-        this.y -= 85;
-        break;
-      case 'down':
-        this.y += 85;
-        break;
-      case 'right':
-        this.x += 100;
-        break;
-      case 'left':
-        this.x -= 100;
-        break;
+    // logic to keep player within bounds of visible canvas
+    if (this.y < 400 && direction === 'down') {
+      this.y += 85;
+    } else if (this.y > -25 && direction === 'up') {
+      this.y -= 85;
+    } else if (this.x < 400 && direction === 'right') {
+      this.x += 100;
+    } else if (this.x > 0 && direction === 'left') {
+      this.x -= 100;
     }
   }
 }
