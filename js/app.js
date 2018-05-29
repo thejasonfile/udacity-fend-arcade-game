@@ -40,13 +40,13 @@ class Enemy {
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
-  constructor(x = 200, y = 420) {
+  constructor(x = 200, y = 400) {
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y = y;
   }
 
-  update() {
+  update(x, y) {
 
   }
 
@@ -54,8 +54,23 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  handleInput() {
-
+  handleInput(direction) {
+    // a direction string is received from the 'keyup' event listener, the player
+    // x and y values are changed based on that direction string
+    switch(direction) {
+      case 'up':
+        this.y -= 85;
+        break;
+      case 'down':
+        this.y += 85;
+        break;
+      case 'right':
+        this.x += 100;
+        break;
+      case 'left':
+        this.x -= 100;
+        break;
+    }
   }
 }
 
