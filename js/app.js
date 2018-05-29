@@ -19,6 +19,12 @@ class Enemy {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += (this.speed * dt);
+    // Once an ememy leaves the canvas, re-render enemy at start position with
+    // different speed
+    if (this.x > 600) {
+      this.x = 0;
+      this.speed = this.calculateSpeed();
+    }
   }
 
   render() {
