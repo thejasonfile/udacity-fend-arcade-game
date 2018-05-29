@@ -46,8 +46,18 @@ class Player {
     this.y = y;
   }
 
-  update(x, y) {
+  update() {
+    if (this.y === 230 || this.y === 145 || this.y === 60) {
+      player.detectCollisions(this.x, this.y)
+    }
+  }
 
+  detectCollisions(playerX, playerY) {
+    let enemyInCurrentLane = allEnemies.find(enemy => enemy.y === playerY);
+    if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
+      player.x = 200;
+      player.y = 400;
+    }
   }
 
   render() {
