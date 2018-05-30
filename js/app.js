@@ -76,7 +76,8 @@ class Player {
   }
 
   gameOver() {
-    modal.classList.remove('hidden');
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('bounceIn');
   }
 
   resetPlayer() {
@@ -145,6 +146,7 @@ document.addEventListener('keyup', function(e) {
 });
 
 playAgainBtn.addEventListener('click', function(e) {
+  modal.classList.toggle('bounceIn');
+  modal.classList.toggle('hidden');
   resetGame();
-  modal.classList.add('hidden');
 })
