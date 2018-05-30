@@ -44,6 +44,8 @@ class Player {
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y = y;
+    this.lives = 3;
+    this.score = 0;
   }
 
   update() {
@@ -57,12 +59,24 @@ class Player {
   detectCollisions(playerX, playerY) {
     let enemyInCurrentLane = allEnemies.find(enemy => enemy.y === playerY);
     if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
-      this.resetPlayer();
+      this.lives -= 1;
+      livesText.textContent = this.lives;
+      if (this.lives === 0) {
+        this.gameOver();
+      } else {
+        this.resetPlayer();
+      }
     }
   }
 
   playerWins() {
+    this.score += 1;
+    scoreText.textContent = this.score;
     this.resetPlayer();
+  }
+
+  gameOver() {
+    alert('game over');
   }
 
   resetPlayer() {
@@ -97,8 +111,11 @@ const enemy3 = new Enemy(0, 230);
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-allEnemies = [enemy1, enemy2, enemy3];
-player = new Player();
+const allEnemies = [enemy1, enemy2, enemy3];
+const player = new Player();
+
+const scoreText = document.querySelector('.num-score');
+const livesText = document.querySelector('.num-lives');
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
