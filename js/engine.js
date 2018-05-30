@@ -22,12 +22,13 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        main = doc.querySelector('.main'),
+        mainSection = doc.querySelector('.main'),
+        statsDiv = doc.querySelector('.stats'),
         lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.insertBefore(canvas, main); //insertBefore reference - https://www.w3schools.com/jsref/met_node_insertbefore.asp
+    mainSection.insertBefore(canvas, statsDiv); //insertBefore reference - https://www.w3schools.com/jsref/met_node_insertbefore.asp
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
