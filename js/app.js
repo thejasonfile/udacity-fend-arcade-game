@@ -81,6 +81,14 @@ class Player {
     this.y = 400;
   }
 
+  changeSprite(charImg) {
+    let currentSpritePath = player.sprite
+    let newSpritePath = charImg.attributes.src.nodeValue
+    debugger;
+    player.sprite = newSpritePath;
+    charImg.parentElement.classList.add('chosen');
+  }
+
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -116,6 +124,7 @@ const livesText = document.querySelector('.num-lives');
 const modal = document.querySelector('.modal');
 const playAgainBtn = document.querySelector('.play-again-btn');
 const finalScore = document.querySelector('.num-score-final');
+const charList = document.querySelector('.chars');
 
 resetGame = () => {
   player.lives = 3;
@@ -152,4 +161,10 @@ playAgainBtn.addEventListener('click', function(e) {
   modal.classList.toggle('bounceIn');
   modal.classList.toggle('hidden');
   resetGame();
+})
+
+charList.addEventListener('click', function(e) {
+  if (e.target.nodeName === 'IMG') {
+    player.changeSprite(e.target);
+  }
 })
