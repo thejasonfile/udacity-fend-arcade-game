@@ -21,12 +21,26 @@ body {
 
 .modal {
   position: fixed;
-  width: 50%;
+  font-size: 2em;
+  width: 40%;
+  padding: 5%;
+  border-radius: 15px;
   z-index: 1;
-  top: 30vh;
+  top: 15vh;
   left: 25vw;
-  background: white;
-  border: 1px solid black;
+  background: #5a5a5a;
+  color: white;
+  border: 3px dashed white;
+}
+
+.play-again-btn {
+  font-size: 2em;
+  border-radius: 5px;
+  background: green;
+  color: white;
+  padding: 15px;
+  box-shadow: 2px 2px 3px;
+  cursor: pointer;
 }
 
 .hidden {

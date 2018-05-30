@@ -61,7 +61,6 @@ class Player {
     if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
       this.lives -= 1;
       livesText.textContent = this.lives;
-      console.log(this.lives);
       if (this.lives === 0) {
         this.resetPlayer();
         gameOver();
