@@ -64,7 +64,7 @@ class Player {
       console.log(this.lives);
       if (this.lives === 0) {
         this.resetPlayer();
-        this.gameOver();
+        gameOver();
       } else {
         this.resetPlayer();
       }
@@ -75,11 +75,6 @@ class Player {
     this.score += 1;
     scoreText.textContent = this.score;
     this.resetPlayer();
-  }
-
-  gameOver() {
-    modal.classList.toggle('hidden');
-    modal.classList.toggle('bounceIn');
   }
 
   resetPlayer() {
@@ -107,18 +102,6 @@ class Player {
   }
 }
 
-function resetGame() {
-  player.lives = 3;
-  player.score = 0;
-  player.resetPlayer();
-  resetStats();
-}
-
-function resetStats() {
-  scoreText.innerText = 0;
-  livesText.innerText = 3;
-}
-
 // Now instantiate your objects.
 const enemy1 = new Enemy(0, 60);
 const enemy2 = new Enemy(0, 145);
@@ -133,6 +116,25 @@ const scoreText = document.querySelector('.num-score');
 const livesText = document.querySelector('.num-lives');
 const modal = document.querySelector('.modal');
 const playAgainBtn = document.querySelector('.play-again-btn');
+const finalScore = document.querySelector('.num-score-final');
+
+resetGame = () => {
+  player.lives = 3;
+  player.score = 0;
+  player.resetPlayer();
+  resetStats();
+}
+
+resetStats = () => {
+  scoreText.innerText = 0;
+  livesText.innerText = 3;
+}
+
+gameOver = () => {
+  modal.classList.toggle('hidden');
+  modal.classList.toggle('bounceIn');
+  finalScore.innerText = player.score;
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
