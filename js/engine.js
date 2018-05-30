@@ -176,7 +176,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-        'images/char-cat-girl.png',
+        'images/char-cat-girl.png', //thanks to 'Sravanthi FEND' on Slack for helping me with adding more character images
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',
         'images/char-princess-girl.png'
