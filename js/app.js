@@ -84,7 +84,8 @@ class Player {
   changeSprite(charImg) {
     let currentSpritePath = player.sprite
     let newSpritePath = charImg.attributes.src.nodeValue
-    debugger;
+    let allImgItems = document.querySelectorAll('li');
+    allImgItems.forEach(img => img.classList.remove('chosen'));
     player.sprite = newSpritePath;
     charImg.parentElement.classList.add('chosen');
   }
@@ -123,8 +124,7 @@ const scoreText = document.querySelector('.num-score');
 const livesText = document.querySelector('.num-lives');
 const modal = document.querySelector('.modal');
 const playAgainBtn = document.querySelector('.play-again-btn');
-const finalScore = document.querySelector('.num-score-final');
-const charList = document.querySelector('.chars');
+const charList = document.querySelector('.char-list');
 
 resetGame = () => {
   player.lives = 3;
@@ -139,6 +139,7 @@ resetStats = () => {
 }
 
 gameOver = () => {
+  const finalScore = document.querySelector('.num-score-final');
   modal.classList.toggle('hidden');
   modal.classList.toggle('bounceIn');
   finalScore.innerText = player.score;
