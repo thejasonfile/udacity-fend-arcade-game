@@ -1,5 +1,7 @@
 body {
     text-align: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .main,
@@ -14,9 +16,33 @@ body {
   margin: 0 auto;
 }
 
+.stats,
+.chars {
+  width: 100%;
+}
+
 .stats {
-  width: 80%;
   justify-content: space-around;
+}
+
+.chars {
+  margin-top: 2.5em;
+}
+
+.chars h3 {
+  margin: 0;
+}
+
+.char-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.char-list li,
+.play-again-btn {
+  cursor: pointer;
 }
 
 .modal {
@@ -40,7 +66,10 @@ body {
   color: white;
   padding: 15px;
   box-shadow: 2px 2px 3px;
-  cursor: pointer;
+}
+
+.dimmed {
+  opacity: 0.5;
 }
 
 .hidden {
