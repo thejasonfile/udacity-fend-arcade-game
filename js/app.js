@@ -67,7 +67,7 @@ class Player {
     if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
       // Deduct one from current lives and update DOM
       this.lives -= 1;
-      livesText.textContent = this.lives;
+      updateHearts(this.lives);
       // If lives reaches 0 then the game is over
       if (this.lives === 0) {
         this.resetPlayer();
@@ -137,7 +137,6 @@ const allEnemies = [enemy1, enemy2, enemy3];
 const player = new Player();
 
 const scoreText = document.querySelector('.num-score');
-const livesText = document.querySelector('.num-lives');
 const modal = document.querySelector('.modal');
 const playAgainBtn = document.querySelector('.play-again-btn');
 const charList = document.querySelector('.char-list');
@@ -153,8 +152,18 @@ resetGame = () => {
 resetStats = () => {
   // Resets the number of lives and the score
   scoreText.innerText = 0;
-  livesText.innerText = 3;
+  updateHearts();
 }
+
+// IIFE to populate and update heart images
+(updateHearts = (lives = 3) => {
+  const livesText = document.querySelector('.num-lives');
+  livesText.innerHTML = "";
+  const heartHTML = '<img src="images/Heart.png" alt="Heart icon"></img>'
+  for (i = lives; i > 0; i--) {
+    livesText.innerHTML += heartHTML;
+  }
+})();
 
 gameOver = () => {
   // When the game is over show the modal including the final score

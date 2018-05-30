@@ -23,6 +23,15 @@ body {
 
 .stats {
   justify-content: space-around;
+  align-items: center;
+}
+
+.lives {
+  width: 40%;
+}
+
+.num-lives img {
+  width: 10%;
 }
 
 .chars {
