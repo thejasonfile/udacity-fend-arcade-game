@@ -18,3 +18,17 @@ body {
   width: 80%;
   justify-content: space-around;
 }
+
+.modal {
+  position: fixed;
+  width: 50%;
+  z-index: 1;
+  top: 30vh;
+  left: 25vw;
+  background: white;
+  border: 1px solid black;
+}
+
+.hidden {
+  visibility: hidden;
+}
