@@ -60,15 +60,9 @@ class Player {
   }
 
   detectCollisions(playerX, playerY) {
-<<<<<<< HEAD
     // Compare players x value with the enemies x values, if the difference
     // between them reaches less than 60 pixels, then a collision has occurred
     // find array helper - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-||||||| merged common ancestors
-=======
-    // Compare players x value with the enemies x values, if the difference
-    // between them reaches less than 60 pixels, then a collision has occurred
->>>>>>> 7136ef60786288b9da1dba848ab266702bc5f410
     let enemyInCurrentLane = allEnemies.find(enemy => enemy.y === playerY);
     if (playerX - enemyInCurrentLane.x <= 60 && playerX - enemyInCurrentLane.x >= 0) {
       // Deduct one from current lives and update DOM
