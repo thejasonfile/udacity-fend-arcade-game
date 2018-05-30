@@ -160,7 +160,7 @@ resetStats = () => {
   const livesText = document.querySelector('.num-lives');
   livesText.innerHTML = "";
   const heartHTML = '<img src="images/Heart.png" alt="Heart icon"></img>'
-  for (i = lives; i > 0; i--) {
+  for (let i = lives; i > 0; i--) {
     livesText.innerHTML += heartHTML;
   }
 })();
