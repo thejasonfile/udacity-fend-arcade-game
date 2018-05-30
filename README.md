@@ -1,6 +1,31 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game Clone Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Table of Contents
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* [Description](#description)
+* [Instructions](#instructions)
+* [Contributing](#contributing)
+
+## Description
+
+An arcade game clone built using Javascript OOP concepts.  This is project
+number 3 for [Udacity's](https://www.udacity.com/) Front-End Nanodegree (FEND) Program.
+
+Dependencies include:
+  * [Animate CSS](https://daneden.github.io/animate.css/)
+
+## Instructions
+
+Move your player with the arrow keys (up, down, left, right) up toward the
+river (blue row of tiles). If you make it to the river you score a point and
+are put back in the starting position. If your player collides with a bug, you
+lose a life and are put back in the starting position.  
+
+After losing three lives the game is over and you will be shown your final score
+along with a chance to play again.
+
+You can also change your player sprite by choosing another from the list.
+
+## Contributing
+
+If you have something to add or change with the code, please submit a Pull Request and it will be reviewed.
