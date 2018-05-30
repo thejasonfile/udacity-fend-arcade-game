@@ -22,11 +22,12 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
+        main = doc.querySelector('.main'),
         lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
+    doc.body.insertBefore(canvas, main); //insertBefore reference - https://www.w3schools.com/jsref/met_node_insertbefore.asp
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -117,7 +118,7 @@ var Engine = (function(global) {
             numRows = 6,
             numCols = 5,
             row, col;
-            
+
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
