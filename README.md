@@ -16,6 +16,8 @@ Dependencies include:
 
 ## Instructions
 
+Download this repo and load the index.html file in a web browser.
+
 Move your player with the arrow keys (up, down, left, right) up toward the
 river (blue row of tiles). If you make it to the river you score a point and
 are put back in the starting position. If your player collides with a bug, you
