@@ -125,7 +125,6 @@ class Player extends Character {
 }
 
 // Now instantiate your objects.
-<<<<<<< HEAD
 
 let generateEnemies;
 (generateEnemies = (num) => {
@@ -137,23 +136,6 @@ let generateEnemies;
   return enemiesArr;
 })();
 
-||||||| merged common ancestors
-const enemy1 = new Enemy('images/enemy-bug.png', 0, 60);
-const enemy2 = new Enemy('images/enemy-bug.png', 0, 145);
-const enemy3 = new Enemy('images/enemy-bug.png', 0, 230);
-=======
-
-let generateEnemies;
-(generateEnemies = (num) => {
-  let enemiesArr = [];
-  for (let i = 0; i < num; i++) {
-    let enemy = new Enemy('images/enemy-bug.png', -300, (60 + i * 85));
-    enemiesArr.push(enemy);
-  }
-  return enemiesArr;
-})();
-
->>>>>>> 3c3e056e8b1a867b592f80908eda891b635e1530
 // Place all enemy objects in an array called allEnemies
 const allEnemies = generateEnemies(3);
 
