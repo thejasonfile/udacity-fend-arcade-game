@@ -1,5 +1,6 @@
 "use strict";
 
+// Parent class for both Player and Enemy
 class Character {
   constructor(sprite, x, y) {
     this.sprite = sprite;
@@ -16,11 +17,6 @@ class Character {
 class Enemy extends Character {
   constructor(sprite, x, y, speed) {
     super(sprite, x, y);
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-    //
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.speed = this.calculateSpeed();
   }
 
@@ -129,13 +125,21 @@ class Player extends Character {
 }
 
 // Now instantiate your objects.
-const enemy1 = new Enemy('images/enemy-bug.png', 0, 60);
-const enemy2 = new Enemy('images/enemy-bug.png', 0, 145);
-const enemy3 = new Enemy('images/enemy-bug.png', 0, 230);
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
-const allEnemies = [enemy1, enemy2, enemy3];
+let generateEnemies;
+(generateEnemies = (num) => {
+  let enemiesArr = [];
+  for (let i = 0; i < num; i++) {
+    let enemy = new Enemy('images/enemy-bug.png', -300, (60 + i * 85));
+    enemiesArr.push(enemy);
+  }
+  return enemiesArr;
+})();
+
+// Place all enemy objects in an array called allEnemies
+const allEnemies = generateEnemies(3);
+
+// Place the player object in a variable called player
 const player = new Player('images/char-boy.png', 200, 400);
 
 const scoreText = document.querySelector('.num-score');
