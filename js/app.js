@@ -1,3 +1,5 @@
+"use strict";
+
 // Enemies our player must avoid
 class Enemy {
   constructor(x = 0, y = 0, speed = 100) {
@@ -141,7 +143,7 @@ const modal = document.querySelector('.modal');
 const playAgainBtn = document.querySelector('.play-again-btn');
 const charList = document.querySelector('.char-list');
 
-resetGame = () => {
+const resetGame = () => {
   // Resets the game back to start settings
   player.lives = 3;
   player.score = 0;
@@ -149,13 +151,14 @@ resetGame = () => {
   resetStats();
 }
 
-resetStats = () => {
+const resetStats = () => {
   // Resets the number of lives and the score
   scoreText.innerText = 0;
   updateHearts();
 }
 
 // IIFE to populate and update heart images
+let updateHearts;
 (updateHearts = (lives = 3) => {
   const livesText = document.querySelector('.num-lives');
   livesText.innerHTML = "";
@@ -165,7 +168,7 @@ resetStats = () => {
   }
 })();
 
-gameOver = () => {
+const gameOver = () => {
   // When the game is over show the modal including the final score
   const finalScore = document.querySelector('.num-score-final');
   modal.classList.toggle('hidden');
