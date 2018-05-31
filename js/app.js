@@ -1,16 +1,26 @@
 "use strict";
 
+class Character {
+  constructor(sprite, x, y) {
+    this.sprite = sprite;
+    this.x = x;
+    this.y = y;
+  }
+
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+}
+
 // Enemies our player must avoid
-class Enemy {
-  constructor(x = 0, y = 0, speed = 100) {
+class Enemy extends Character {
+  constructor(sprite, x, y, speed) {
+    super(sprite, x, y);
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     //
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
     this.speed = this.calculateSpeed();
   }
 
@@ -29,10 +39,6 @@ class Enemy {
     }
   }
 
-  render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-
   calculateSpeed() {
     return Math.floor(Math.random() * 400) + 100  //random number code from https://www.w3schools.com/js/js_random.asp
   }
@@ -41,11 +47,9 @@ class Enemy {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Player {
-  constructor(x = 200, y = 400) {
-    this.sprite = 'images/char-boy.png';
-    this.x = x;
-    this.y = y;
+class Player extends Character {
+  constructor(sprite, x, y) {
+    super(sprite, x, y);
     this.lives = 3;
     this.score = 0;
   }
@@ -108,10 +112,6 @@ class Player {
     charImg.parentElement.classList.add('chosen');
   }
 
-  render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-
   handleInput(direction) {
     // a direction string is received from the 'keyup' event listener, the player
     // x and y values are changed based on that direction string
@@ -129,14 +129,14 @@ class Player {
 }
 
 // Now instantiate your objects.
-const enemy1 = new Enemy(0, 60);
-const enemy2 = new Enemy(0, 145);
-const enemy3 = new Enemy(0, 230);
+const enemy1 = new Enemy('images/enemy-bug.png', 0, 60);
+const enemy2 = new Enemy('images/enemy-bug.png', 0, 145);
+const enemy3 = new Enemy('images/enemy-bug.png', 0, 230);
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 const allEnemies = [enemy1, enemy2, enemy3];
-const player = new Player();
+const player = new Player('images/char-boy.png', 200, 400);
 
 const scoreText = document.querySelector('.num-score');
 const modal = document.querySelector('.modal');
